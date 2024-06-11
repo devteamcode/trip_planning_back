@@ -16,6 +16,8 @@ export const envSchema = Joi.object({
   BD_USERNAME: Joi.string().required(),
   BD_PASSWORD: Joi.string().required(),
   BD_NAME: Joi.string().required(),
+  JWT_SECRET: Joi.string().required(),
+  JWT_EXPIRES: Joi.number().required(),
 });
 
 const variables = new ConfigService(envSchema);
@@ -29,4 +31,6 @@ export const envs = {
   bdUsername: variables.get('BD_USERNAME'),
   bdPassword: variables.get('BD_PASSWORD'),
   bdName: variables.get('BD_NAME'),
+  jwtSecret: variables.get('JWT_SECRET'),
+  jwtExpires: variables.get('JWT_EXPIRES'),
 };
